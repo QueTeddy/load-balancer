@@ -23,8 +23,8 @@ jobs:
             registry: ghcr.io
             username: ${{ github.actor }}
             password: ${{ secrets.GITHUB_TOKEN }}
-            username: ${{ secrets.DOCKER_HUB_USERNAME }}
-            password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+            username: ${{ secrets.DOCKER_HUB_USERNAME}}
+            password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN}}
         -
           name: Set up Docker Buildx
           uses: docker/setup-buildx-action@v2
@@ -35,6 +35,6 @@ jobs:
             context: .
             file: ./Dockerfile
             push: true
-            tags: ${{ secrets.DOCKER_HUB_USERNAME }}/DOCKER_HUB_USERNAME:latest
-            cache-from: type=registry,ref=${{secrets.DOCKER_HUB_USERNAME}}/DOCKER_HUB_USERNAME:buildcache
-            cache-to: type=registry,ref=${{secrets.DOCKER_HUB_USERNAME}}/DOCKER_HUB_USERNAME:buildcache,mode=max
+            tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhaleci:latest
+            cache-from: type=registry,ref=${{secrets.DOCKER_HUB_USERNAME}}/simplewhaleci:buildcache
+            cache-to: type=registry,ref=${{secrets.DOCKER_HUB_USERNAME}}/simplewhaleci:buildcache,mode=max
